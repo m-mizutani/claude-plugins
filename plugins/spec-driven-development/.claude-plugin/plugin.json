@@ -1,0 +1,10 @@
+{
+  "name": "spec-driven-development",
+  "version": "0.1.0",
+  "description": "Spec-driven development workflow: explore approaches (brainstorm), write and approve a spec (spec), implement it through PR creation (implement), and handle PR review comments and CI failures (check-pr).",
+  "author": {
+    "name": "Masayoshi Mizutani",
+    "url": "https://github.com/m-mizutani"
+  },
+  "license": "Apache-2.0"
+}

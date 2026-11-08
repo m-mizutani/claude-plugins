@@ -1,0 +1,21 @@
+{
+  "name": "m-mizutani",
+  "owner": {
+    "name": "Masayoshi Mizutani",
+    "url": "https://github.com/m-mizutani"
+  },
+  "metadata": {
+    "description": "Claude Code plugins maintained by m-mizutani",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "spec-driven-development",
+      "source": "./plugins/spec-driven-development",
+      "description": "Spec-driven development workflow: brainstorm, spec, implement, and check-pr skills",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "category": "development"
+    }
+  ]
+}
