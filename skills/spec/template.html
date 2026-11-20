@@ -1,0 +1,123 @@
+<style>
+  .spec { max-width: 56rem; margin: 0 auto; padding: 1rem; line-height: 1.7; }
+  .spec h1 { border-bottom: 2px solid currentColor; padding-bottom: .3rem; }
+  .spec h2 { margin-top: 2.2rem; border-bottom: 1px solid #8884; padding-bottom: .2rem; }
+  .spec .note { border-left: 4px solid #8888; padding: .4rem .9rem; background: #8881; border-radius: 4px; }
+  .spec .decide { border-left: 4px solid #d98a2b; padding: .5rem .9rem; background: #d98a2b26; border-radius: 4px; margin: 1rem 0; }
+  .spec .decide::before { content: "要判断"; display: block; font-weight: 700; font-size: .85em; letter-spacing: .08em; color: #c2761a; margin-bottom: .25rem; }
+  .spec ul.tasks { list-style: none; padding-left: 1.2rem; }
+  .spec li.task { position: relative; }
+  .spec li.task::before { position: absolute; left: -1.2rem; }
+  .spec li.task.todo::before { content: "☐"; }
+  .spec li.task.done::before { content: "☑"; }
+  .spec li.task.done { opacity: .65; }
+  .spec figure { margin: 1rem 0; }
+  .spec figcaption { font-size: .9em; opacity: .8; margin-top: .5rem; }
+  .spec .scroll { overflow-x: auto; }
+  .spec table { border-collapse: collapse; width: 100%; }
+  .spec th, .spec td { border-bottom: 1px solid #8884; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+  .spec code { background: #8882; padding: .1rem .3rem; border-radius: 3px; }
+  .spec .chip { display: inline-block; font-size: .85em; padding: .05rem .5rem; margin: .1rem .3rem .1rem 0; border-radius: 4px; white-space: nowrap; }
+  .spec .chip.ok { background: #2e9e6626; }
+  .spec .chip.edge { background: #d98a2b33; }
+  .spec .chip.err { background: #d0444433; }
+  .spec summary { cursor: pointer; font-weight: 600; }
+</style>
+<article class="spec">
+  <h1>{タスク名} Specification</h1>
+
+  <h2>1. 要求事項 (Requirements)</h2>
+  <h3>概要</h3>
+  <p>[タスクの概要と目的]</p>
+  <h3>機能要件</h3>
+  <ul><li><strong>R1</strong> [要件]</li><li><strong>R2</strong> [要件]</li></ul>
+  <h3>非機能要件</h3>
+  <ul><li><strong>R3</strong> [性能、セキュリティなどの要件。機能要件からの通し番号を付ける。なければ「なし」]</li></ul>
+  <h3>制約事項</h3>
+  <ul><li>[技術的な制約、業務上の制約。なければ「なし」]</li></ul>
+
+  <h2>2. 基本設計 (High-Level Design)</h2>
+  <p class="note">小見出しと順序は、この設計で最も重要なデータ構造・アルゴリズム・処理プロセスから決める。下の3つの節は出発点であり、設計に合わせて置き換える。各項目に図を入れる。</p>
+
+  <h3>設計全体の考え方</h3>
+  <p>[何をどの単位で扱い、どの関係と処理で要求を満たすか。主要な概念を定義し、変更前後と維持する動作を短く説明する]</p>
+  <figure>
+    <svg viewBox="0 0 100 30" role="img" aria-label="[主要な概念の関係と変更前後]"><!-- Diagram content. --></svg>
+    <figcaption>[箱と矢印が何を表すか。図から読み取る関係]</figcaption>
+  </figure>
+
+  <h3>[最も重要なデータ構造・アルゴリズム・処理プロセスの見出し]</h3>
+  <p>[この概念が必要な理由、1件の単位、他の概念との関係、守る条件。図で理解する関係を、図の前に説明する]</p>
+  <figure>
+    <svg viewBox="0 0 100 30" role="img" aria-label="[図が説明する関係または動作]"><!-- Diagram content. --></svg>
+    <figcaption>[箱・矢印・単位の意味]</figcaption>
+  </figure>
+
+  <h3>[具体例で動作を追う見出し]</h3>
+  <p>[入力と処理前の状態から、選択・更新・実行・終了を追い、処理後の状態を示す]</p>
+  <figure>
+    <svg viewBox="0 0 100 30" role="img" aria-label="[データの変化、処理順序、状態遷移など]"><!-- Diagram content. --></svg>
+    <figcaption>[前の図と同じ名称で概念を示し、この図で分かる変化を説明する]</figcaption>
+  </figure>
+
+  <p class="note">UI を変える場合は、この章に変更前の画面（スクリーンショット）と、変更後の画面（HTML と CSS で作ったもの）を、画面ごと・状態ごとに並べる。</p>
+
+  <h2>3. 設計判断 (Design Decisions)</h2>
+  <ul>
+    <li><strong>[論点]</strong> — 採用: [採用案] / 却下: [却下案（却下の理由）]</li>
+  </ul>
+  <p class="note">選択肢のあった箇所がなければ「比較が必要な選択肢なし」と書く。</p>
+
+  <div class="decide">
+    <strong>[決めること]</strong>
+    <ul>
+      <li><strong>案A: [名前]</strong> — [内容]。採用した場合: [結果]</li>
+      <li><strong>案B: [名前]</strong> — [内容]。採用した場合: [結果]</li>
+    </ul>
+    <p>推奨: [推す案] — [理由]</p>
+  </div>
+  <p class="note"><code>decide</code> の callout は、ユーザーの判断が必要な箇所の該当位置に置く（この章に限らない）。判断が必要な箇所がなければ削除する。</p>
+
+  <h2>4. テスト計画 (Test Plan)</h2>
+  <p>[検証の方針を1〜2文で。次の図が何を示すか]</p>
+  <figure>
+    <div class="scroll"><table>
+      <tr><th>要求・振る舞い</th><th>[テストの置き場所1（例: 単体テスト <code>path/to/x_test</code>）]</th><th>[テストの置き場所2（例: 統合テスト）]</th></tr>
+      <tr><td><strong>R1</strong> [要求の短い名前]</td><td><span class="chip ok">T1 [正常系のラベル]</span><span class="chip edge">T2 [境界値のラベル]</span></td><td><span class="chip err">T3 [異常系のラベル]</span></td></tr>
+      <tr><td><strong>R2</strong> [要求の短い名前]</td><td>―</td><td><span class="chip ok">T4 [ラベル]</span></td></tr>
+    </table></div>
+    <figcaption>行は要求、列はテストの置き場所、セルのラベルは検証項目を表す。<span class="chip ok">正常系</span><span class="chip edge">境界値</span><span class="chip err">異常系</span>。「―」はそこでは検証しないことを表す。[検証しない要求があれば、その理由]</figcaption>
+  </figure>
+  <details><summary>各検証項目の内容（[N]件）</summary>
+    <ul class="tasks">
+      <li class="task todo"><strong>T1</strong> [入力・状態] → [期待する結果]</li>
+      <li class="task todo"><strong>T2</strong> [入力・状態] → [期待する結果]</li>
+      <li class="task todo"><strong>T3</strong> [入力・状態] → [期待するエラー]</li>
+    </ul>
+  </details>
+
+  <h2>5. インターフェースとスキーマの定義 (Interfaces and Schemas)</h2>
+  <p class="note">この変更の外にあるもの（保存済みのデータ、変更しないコード、利用者、運用者、外部サービス）が依存する定義だけを書く。該当がない節は「該当なし」と書く。</p>
+
+  <h3>永続化スキーマとマイグレーション</h3>
+  <p>[DB のテーブルと列、ファイルやオブジェクトストレージの保存形式、メッセージの形式、キャッシュのキーを、現状 → 変更後で対比する。既存データの扱い、後方互換性、ロールバックの可否を書く。変更がなければ「該当なし」]</p>
+
+  <h3>外的インターフェース</h3>
+  <p>[API・エンドポイント、設定項目、環境変数、CLI のフラグと引数、外部サービスとの連携と必要な権限。名前、型、既定値、必須かどうかを書く。変更がなければ「該当なし」]</p>
+
+  <h3>重要な公開シグネチャ</h3>
+  <p>[影響が明らかに大きいものだけを、現状 → 変更後で対比する。網羅しない。該当がなければ「該当なし」]</p>
+
+  <h2>6. 実装計画 (Implementation Plan)</h2>
+  <p>[次の図が何を示すか。変更の中心がどこにあるか]</p>
+  <figure>
+    <svg viewBox="0 0 100 40" role="img" aria-label="変更するファイルと変更の要点"><!-- One box per file or directory: new / changed / deleted, 1-3 lines on what changes, arrows for dependencies. --></svg>
+    <figcaption>[箱が1つのファイルまたはディレクトリを表すこと、矢印の意味]</figcaption>
+  </figure>
+  <h3>実装ステップ</h3>
+  <ul class="tasks">
+    <li class="task todo"><strong>Step 1</strong>: [まとまった作業の単位]</li>
+    <li class="task todo"><strong>Step 2</strong>: [まとまった作業の単位]</li>
+    <li class="task todo"><strong>Step 3</strong>: ドキュメントの更新（外的インターフェースの変更を反映する）</li>
+  </ul>
+</article>

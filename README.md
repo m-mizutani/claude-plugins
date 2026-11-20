@@ -24,8 +24,8 @@ Skills for a spec-driven development workflow. Skills are written in Japanese.
 | Skill | Purpose |
 | --- | --- |
 | `brainstorm` | Investigates the codebase and external references, then proposes implementation approaches before a spec is written. |
-| `spec` | Writes or updates a spec (requirements, basic design, design decisions, test plan, detailed design, implementation plan) as an HTML Artifact and stops at user approval. |
-| `implement` | Implements the approved spec, checks every requirement against the implementation, handles review findings, and creates the pull request with CI checked. |
+| `spec` | Writes or updates a spec (requirements, basic design, design decisions, test plan, interface and schema definitions, implementation plan) as an HTML Artifact and stops at user approval. The test plan and the implementation plan are each summarized in one diagram; internal signatures and per-file edit instructions are left to the implementer. For UI changes, the skill designs the changed screens itself and includes them in the spec. |
+| `implement` | Implements the approved spec, checks every requirement, test-plan item, and interface or schema definition against the implementation, handles review findings, and creates the pull request with CI checked. |
 | `check-pr` | Reads the current branch's pull request review threads and CI status, fixes failures and valid comments, and resolves threads. |
 
 Dependencies outside this plugin:

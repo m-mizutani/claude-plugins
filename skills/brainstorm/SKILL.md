@@ -1,7 +1,7 @@
 ---
 name: brainstorm
 description: "実現方法や設計を検討するスキル。指示された内容の実現方法を、リポジトリのソースコードの観察・外部の最新OSS実装や実践事例の調査を踏まえて検討し、実装案や実現可能性を提示する。ユーザーが「これってできる？」「どうやって実装する？」「こういう機能を入れたい」「設計を相談したい」「実現方法を相談したい」といった探索的・検討段階の相談をしたときに使うこと。spec作成（/spec）の前段階での利用を想定している。"
-allowed-tools: Read, Write, Edit, Bash, Grep, Glob, Agent, WebFetch, WebSearch, AskUserQuestion
+allowed-tools: Read, Write, Edit, Bash, Grep, Glob, Agent, WebFetch, WebSearch, AskUserQuestion, Skill
 ---
 
 # 実現方法・設計の検討
@@ -28,7 +28,7 @@ allowed-tools: Read, Write, Edit, Bash, Grep, Glob, Agent, WebFetch, WebSearch, 
 
 ### Step 2: コードベースの観察
 
-相談内容に関連するコードを徹底的に調べる。基本は自分で読む。調査対象が広範（複数ディレクトリにまたがる、数十ファイル規模）で、かつ読む作業が単調な場合にのみ Agent（Explore）に並列で委任する。CLAUDE.mdのSubagent Delegation方針に従い、1体で足りるなら1体に留める。
+相談内容に関連するコードを読む。基本は自分で読む。調査対象が広範（複数ディレクトリにまたがる、数十ファイル規模）で、かつ読む作業が単調な場合にのみ Agent（Explore）に委任する。サブエージェントは文脈を毎回送り直すため費用がかかるので、1体で足りるなら1体にとどめる。
 
 調べるべきこと：
 - **既存の実装パターン**: 同種の処理がすでにどう実装されているか
@@ -116,7 +116,7 @@ allowed-tools: Read, Write, Edit, Bash, Grep, Glob, Agent, WebFetch, WebSearch, 
 #### 追加確認の進め方
 
 1. コードベース観察や外部調査で判明した事実をもとに、**具体的な選択肢付きの質問**を組み立てる
-2. 事実や要件の確認には AskUserQuestion を使う。ユーザーに案を選んでもらう場合は、`CLAUDE.md` の User Decisions に従って先に `decision-brief` スキルを使い、各案の利点と欠点を示す
+2. 事実や要件の確認には AskUserQuestion を使う。ユーザーに案を選んでもらう場合は、各案の利点と欠点を同じ比較項目で示してから尋ねる。`decision-brief` スキルが使える場合は、それで比較の資料を作る
 3. 回答を受けて案を更新・絞り込む
 4. まだ不明点があれば繰り返す
 
